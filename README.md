@@ -7,3 +7,5 @@ Vertical Geoid Model utilizzabile con i software di controllo
 dei ricevitori satellitari GNSS 
  
 Vertical Geoid Model con QGIS.
+
+![QGis_GNSS](https://user-images.githubusercontent.com/23143342/185226806-84c9ba52-c46b-4655-8ca5-5c4efa217972.jpg)
