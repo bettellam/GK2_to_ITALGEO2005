@@ -92,6 +92,11 @@ def rBilinear_Value(rlayer_name, feature, parent):
         idx = feature.fieldNameIndex('z')
         if idx!=-1:
             EllissValue=feature.attributes()[idx]
+            if EllissValue != NULL:
+              GeoidValue=EllissValue-Value
+              return round(GeoidValue,3)
+            else:
+              return round(Value,3)
             GeoidValue=EllissValue-Value
             return round(GeoidValue,3)
         else:
