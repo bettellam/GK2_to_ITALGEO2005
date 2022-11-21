@@ -8,6 +8,7 @@
 """
 #-------------------------------------------------------------
 
+from qgis.core import *
 import math
 
 @qgsfunction(args='auto', group='Rasters',usesgeometry=True)
