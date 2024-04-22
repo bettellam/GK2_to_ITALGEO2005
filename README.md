@@ -60,7 +60,7 @@ raster rappresenti il **Modello di Ondulazione del Geoide** e nel file
 **puntisparsi.shp** è presente il campo (Esempio: **H_ELL** ) con il
 valore di altezza ellissoidica ricavata da un rilievo GNSS.
 
-Se il file **puntisparsi.shp** è un **PointZ** posso estrarre il valore
+Se il file **puntisparsi.shp** è un **PointZ** derivante da un rilievo GNSS, posso estrarre il valore
 di z con il **Fied Calculator** e attribuirlo al campo **z**:
 
 - **z-🡪 *z(\$geometry)*** <BR>
@@ -76,6 +76,8 @@ In questo secondo caso devo modificare alla riga 93 della funzione
 Il risultato **rBilinear_Value** sarà la **Quota Geoidica** ( differenza
 dei valori: ***[z - GeoidModelValue]*** o ***[H_ELL -
 GeoidModelValue]*** )
+
+:bangbang: Prestare attenzione se il file punti utilizzato contiene un campo **Z** che non rappresenta una altezza ellissoidica :bangbang:
 
 **Buon lavoro...**
 
