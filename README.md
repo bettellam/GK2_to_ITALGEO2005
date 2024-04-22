@@ -1,39 +1,40 @@
 # GK2_to_ITALGEO2005
-Estrazione dai Grigliati IGMI GK2 del Modello di Ondulazione del Geoide ITALGEO2005
-
+**Estrazione dai Grigliati IGMI GK2 del Modello di Ondulazione del Geoide ITALGEO2005** <BR>
 da Altezze Ellissoidiche ---> a Quote Ortometriche/Geoidiche
 
-Vertical Geoid Model utilizzabile con i software di controllo 
-dei ricevitori satellitari GNSS 
- 
+Vertical Geoid Model utilizzabile con i software di controllo  <BR>
+dei ricevitori satellitari GNSS <BR>
 Vertical Geoid Model con QGIS.
+
+I dettagli della procedura di estrazione, sono descritti nel file PDF allegato... <BR>
+:bookmark_tabs: [ITALGEO2005_da_GK2_a_GTX_v4.1_presentazione](ITALGEO2005_da_GK2_a_GTX_v4.1_presentazione.pdf)
+
 
 ![QGis_GNSS](https://user-images.githubusercontent.com/23143342/185226806-84c9ba52-c46b-4655-8ca5-5c4efa217972.jpg)
 
 
+
 # Esempio operativo per l'uso di rBilinear_Value.py
 
-La funzione **rBilinear_Value.py** deve essere caricata in:
-
+La funzione **rBilinear_Value.py** deve essere caricata in: <BR>
 C:\\Users\\**MIOPROFILO**\\AppData\\Roaming\\QGIS\\QGIS3\\profiles\\default\\python\\expressions
 
 Il file raster da dove estrarre i valori con la funzione
 **rBilinear_Value** deve avere lo stesso sistema di proiezione del file
-punti (devo ancora implementare nella funzione rBilinear_Value.py in
-cambio di proiezione fra i due layers raster/point ):
+punti  <BR>
+(devo ancora implementare nella funzione rBilinear_Value.py in
+cambio di proiezione fra i due layers raster/point ).
 
 Nell'ipotesi di due file con proiezione differente: DN_GK2.asc *(6706)*
-e puntisparsi.shp *(6707)*
-
+e puntisparsi.shp *(6707)* <BR>
 - o converti DN_GK2.asc *(6706)* in EPSG:6707 -🡪 DN_GK2_6707.tif (con il
-comando Qgis: Export🡪Save as...)
-
+comando Qgis: Export🡪Save as...) <BR>
 - o converti puntisparsi.shp *(6707)* in EPSG:6706 -🡪 puntisparsi_6706.shp
 (con il comando Qgis: Export🡪Save as...)
 
-Nel mio caso ho preferito lavorare in EPSG:6707, creando il file
-**DN_GK2_6707.tif** congruente con **puntisparsi.shp**
 
+Nel mio caso ho preferito lavorare in EPSG:6707, creando il file
+**DN_GK2_6707.tif** congruente con **puntisparsi.shp** <BR>
 1)  In **puntisparsi.shp** ho inserito un nuovo campo **Raster_Val**
     (real)
 
@@ -62,15 +63,12 @@ valore di altezza ellissoidica ricavata da un rilievo GNSS.
 Se il file **puntisparsi.shp** è un **PointZ** posso estrarre il valore
 di z con il **Fied Calculator** e attribuirlo al campo **z**:
 
-- **z-🡪 *z(\$geometry)***
-
-oppure:
-
+- **z-🡪 *z(\$geometry)*** <BR>
+oppure: <BR>
 - **H_ELL** **🡪 *z(\$geometry)***
 
 In questo secondo caso devo modificare alla riga 93 della funzione
-**rBilinear_Value.py** e sostituire: **z** con **H_ELL**
-
+**rBilinear_Value.py** e sostituire: **z** con **H_ELL** <BR>
 *( ricordarsi di usare il pulsante **Save and Load Functions** )*
 
 ![](media/image4.png)
@@ -79,10 +77,8 @@ Il risultato **rBilinear_Value** sarà la **Quota Geoidica** ( differenza
 dei valori: ***[z - GeoidModelValue]*** o ***[H_ELL -
 GeoidModelValue]*** )
 
-Fine del lavoro......
+**Buon lavoro...**
 
-Aprile 2024
-
-Mauro Bettella
-
+Aprile 2024 <BR>
+Mauro Bettella <BR>
 <bettellam@gmail.com>
